@@ -93,24 +93,25 @@ const teams = [{
     }
 ];
 
+/* generate the points and fouls */
 let minPts = 0;
 let maxPts = 100;
 let minFouls = 0;
 let maxFouls = 30;
-for ( let i = 0; i < teams.length; i++){
-    teams[i]['points'] = randArray(minPts, maxPts, 1);
-    teams[i]['fouls'] = randArray(minPts, maxPts, 1);
-}
+teams.forEach( (element) => {
+    element.fouls = parseInt(randArray(minPts, maxPts, 1));
+    element.points = parseInt(randArray(minFouls, maxFouls, 1));
+} )
+console.log(teams)
 
-let arrNames = [];
-let arrfouls = [];
-for ( let i = 0; i < teams.length; i++ ){
-    arrNames.push( teams[i]['teamname'] );
-    arrfouls.push( teams[i]['fouls'] );
-}
-console.log(arrNames, arrfouls)
+/* extract names and fouls */
+let newArr = teams.map( ({teamname, fouls}) => {
+    return {teamname, fouls}
+})
+console.log(newArr)
 
 
 /* JSnack 3: */
 let arr = ['alberto', 'michele','angelo','simone'];
+
 
