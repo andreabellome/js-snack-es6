@@ -112,6 +112,14 @@ console.log(newArr)
 
 
 /* JSnack 3: */
-let arr = ['alberto', 'michele','angelo','simone'];
+let arr = ['alberto', 'michele', 'angelo', 'simone'];
+let len = arr.length;
+let minNum = parseInt( prompt(`Iserisci un numero tra 0 e ${len}`) );
+let maxNum = parseInt( prompt(`Iserisci un numero tra 0 e ${len} maggiore di ${minNum}`) );
 
-
+let arrFiltered = arr.filter( (element, index) => {
+    if ( minNum < index && maxNum > index ) {
+        return element
+    }
+} )
+console.log(arrFiltered)
